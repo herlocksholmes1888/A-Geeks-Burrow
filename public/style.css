@@ -28,6 +28,10 @@
 
 #admin {
     cursor: pointer;
+    font-weight: bold;
     border-radius: 50%;
     width: 4.5rem;
+    background-color: var(--lavender);
+    border-color: var(--lavender);
+    color: var(--light-goldenrod-yellow);
 }
