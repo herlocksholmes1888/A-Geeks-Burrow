@@ -1,0 +1,33 @@
+:root {
+    --dark-magenta: #850F8D;
+    --steel-pink: #C738BD;
+    --lavender: #E49BFF;
+    --light-goldenrod-yellow: #F8F9D7;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    height: 4.2rem;
+    background-color: var(--steel-pink);
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: white;
+}
+
+#admin {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 4.5rem;
+}
