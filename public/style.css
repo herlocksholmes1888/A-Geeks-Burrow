@@ -12,6 +12,7 @@
     box-sizing: border-box;
 }
 
+/* HEADER */
 .title-card {
     display: flex;
     justify-content: space-between;
@@ -34,4 +35,23 @@
     background-color: var(--lavender);
     border-color: var(--lavender);
     color: var(--light-goldenrod-yellow);
+}
+
+/* MAIN */
+.content {
+
+}
+
+.right-side {
+    background-color: var(--light-goldenrod-yellow);
+}
+
+.left-side {
+    background-color: var(--dark-magenta);
+    height: 30rem;
+    width: 15rem;
+    margin: 2.5rem;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: center;
 }
