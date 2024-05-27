@@ -76,7 +76,7 @@ footer {
 .social-media {
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.2rem;
 }
 
 .icon {
@@ -92,4 +92,5 @@ footer {
     justify-content: center;
     align-items: center;
     opacity: 0.8;
+    margin-top: 0.5rem;
 }
