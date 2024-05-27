@@ -6,7 +6,7 @@
 }
 
 html {
-    background-image: url("./images/pikachu.gif");
+    background-image: url("./images/pikachu.png");
     background-size: 100px 100px;
 }
 
@@ -61,6 +61,14 @@ html {
     height: 30rem;
     width: 15rem;
     padding-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* FOOTER */
+footer {
+    background-color: black;
+    color: white;
     display: flex;
     justify-content: center;
 }
