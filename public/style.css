@@ -69,6 +69,27 @@ html {
 footer {
     background-color: black;
     color: white;
+    height: 5.8rem;
+    padding: 1.5rem;
+}
+
+.social-media {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1.8rem;
+}
+
+.icon {
+    color: white;
+}
+
+.icon:hover {
+    opacity: 0.8;
+}
+
+#copyright {
     display: flex;
     justify-content: center;
+    align-items: center;
+    opacity: 0.8;
 }
