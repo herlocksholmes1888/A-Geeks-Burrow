@@ -98,13 +98,22 @@ footer {
 
 /*-- LOGIN --*/
 .foreground-square {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: var(--steel-pink);
     position: absolute;
-    left: 38%; 
+    left: 30%; 
     padding: 2rem; 
-    height: 32rem;
-    width: 15rem;
+    height: 100%;
+    width: 30rem;
     box-sizing: content-box;
+}
+
+.foreground-square h1 {
+    color: white;
+    margin-bottom: 8px;
 }
 
 #kirby-tired {
@@ -115,5 +124,24 @@ footer {
 #login {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 8px;
+}
+
+.adminInfo {
+    color: grey;
+}
+
+.password-container {
+    display: -ms-flexbox;
+    display: flex;
+    background-color: black;
+}
+
+#togglePassword {
+    color: white;
+    cursor: pointer;
+}
+
+#togglePassword:hover {
+    opacity: 0.8;
 }
