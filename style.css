@@ -1,4 +1,3 @@
-/* GLOBAL CHANGES */
 :root {
     --dark-magenta: #850F8D;
     --steel-pink: #C738BD;
@@ -44,7 +43,7 @@ footer {
 /*-- HOME --*/
 
 .home-content {
-    background-image: url("./images/kirby.webp");
+    background-image: url("./public/images/kirby.webp");
     background-size: 60px 60px;
 }
 
@@ -98,11 +97,11 @@ footer {
 
 /*-- LOGIN --*/
 .foreground-square {
+    background-color: var(--steel-pink);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--steel-pink);
     position: absolute;
     left: 30%; 
     padding: 2rem; 
@@ -114,6 +113,9 @@ footer {
 .foreground-square h1 {
     color: white;
     margin-bottom: 8px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #kirby-tired {
