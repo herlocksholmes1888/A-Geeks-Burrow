@@ -1,3 +1,4 @@
+/* GLOBAL CHANGES */
 :root {
     --dark-magenta: #850F8D;
     --steel-pink: #C738BD;
@@ -5,67 +6,12 @@
     --light-goldenrod-yellow: #F8F9D7;
 }
 
-html {
-    background-image: url("./images/kirby.webp");
-    background-size: 60px 60px;
-}
-
-/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* HEADER */
-.title-card {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    padding-right: 2rem;
-    padding-left: 2rem;
-    height: 4.2rem;
-    background-color: var(--steel-pink);
-    font-family: "Dancing Script", cursive;
-    font-optical-sizing: auto;
-    font-style: normal;
-    color: white;
-}
-
-#admin {
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 50%;
-    width: 4.5rem;
-    background-color: var(--lavender);
-    border-color: var(--lavender);
-    color: var(--light-goldenrod-yellow);
-}
-
-/* MAIN */
-.content {
-    display: flex;
-    justify-content: space-between;
-    direction: rtl;
-    margin: 2.5rem;
-}
-
-.right-side {
-    background-color: var(--lavender);
-    height: 30rem;
-    width: 60rem;
-}
-
-.left-side {
-    background-color: var(--dark-magenta);
-    height: 30rem;
-    width: 15rem;
-    padding-top: 1.5rem;
-    display: flex;
-    justify-content: center;
-}
-
-/* FOOTER */
 footer {
     background-color: black;
     color: white;
@@ -93,4 +39,81 @@ footer {
     align-items: center;
     opacity: 0.8;
     margin-top: 0.5rem;
+}
+
+/*-- HOME --*/
+
+.home-content {
+    background-image: url("./images/kirby.webp");
+    background-size: 60px 60px;
+}
+
+/* header */
+.title-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    height: 4.2rem;
+    background-color: var(--steel-pink);
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: white;
+}
+
+#admin {
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 4.5rem;
+    background-color: var(--lavender);
+    border-color: var(--lavender);
+    color: var(--light-goldenrod-yellow);
+}
+
+/* main */
+.content {
+    display: flex;
+    justify-content: space-between;
+    direction: rtl;
+    margin: 2.5rem;
+}
+
+.right-side {
+    background-color: var(--lavender);
+    height: 30rem;
+    width: 60rem;
+}
+
+.left-side {
+    background-color: var(--dark-magenta);
+    height: 30rem;
+    width: 15rem;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+/*-- LOGIN --*/
+.foreground-square {
+    background-color: var(--steel-pink);
+    position: absolute;
+    left: 38%; 
+    padding: 2rem; 
+    height: 32rem;
+    width: 15rem;
+    box-sizing: content-box;
+}
+
+#kirby-tired {
+    width: 10rem;
+    height: 10rem;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
