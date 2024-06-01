@@ -40,10 +40,8 @@ footer {
     margin-top: 0.5rem;
 }
 
-/*-- HOME --*/
-
 .home-content {
-    background-image: url("./public/images/kirby.webp");
+    background-image: url("./images/kirby.webp");
     background-size: 60px 60px;
 }
 
@@ -93,57 +91,4 @@ footer {
     padding-top: 1.5rem;
     display: flex;
     justify-content: center;
-}
-
-/*-- LOGIN --*/
-.foreground-square {
-    background-color: var(--steel-pink);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 30%; 
-    padding: 2rem; 
-    height: 100%;
-    width: 30rem;
-    box-sizing: content-box;
-}
-
-.foreground-square h1 {
-    color: white;
-    margin-bottom: 8px;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-#kirby-tired {
-    width: 10rem;
-    height: 10rem;
-}
-
-#login {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.adminInfo {
-    color: grey;
-}
-
-.password-container {
-    display: -ms-flexbox;
-    display: flex;
-    background-color: black;
-}
-
-#togglePassword {
-    color: white;
-    cursor: pointer;
-}
-
-#togglePassword:hover {
-    opacity: 0.8;
 }

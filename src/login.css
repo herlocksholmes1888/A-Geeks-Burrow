@@ -1,0 +1,64 @@
+:root {
+    --dark-magenta: #850F8D;
+    --steel-pink: #C738BD;
+    --lavender: #E49BFF;
+    --light-goldenrod-yellow: #F8F9D7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.foreground-square {
+    background-color: var(--steel-pink);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 30%; 
+    padding: 2rem; 
+    height: 100%;
+    width: 30rem;
+    box-sizing: content-box;
+}
+
+.foreground-square h1 {
+    color: white;
+    margin-bottom: 8px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#kirby-tired {
+    width: 10rem;
+    height: 10rem;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.adminInfo {
+    color: grey;
+}
+
+.password-container {
+    display: -ms-flexbox;
+    display: flex;
+    background-color: black;
+}
+
+#togglePassword {
+    color: white;
+    cursor: pointer;
+}
+
+#togglePassword:hover {
+    opacity: 0.8;
+}
