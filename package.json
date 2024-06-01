@@ -1,5 +1,24 @@
 {
   "dependencies": {
+    "express.js": "^1.0.0",
+    "nodemon": "^3.1.2",
     "typescript": "^5.4.5"
-  }
+  },
+  "name": "a-geeks-burrow",
+  "description": "A personal blog application",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herlocksholmes1888/A-Geeks-Burrow.git"
+  },
+  "author": "Luisa Lopes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/herlocksholmes1888/A-Geeks-Burrow/issues"
+  },
+  "homepage": "https://github.com/herlocksholmes1888/A-Geeks-Burrow#readme"
 }
