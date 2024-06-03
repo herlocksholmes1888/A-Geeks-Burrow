@@ -48,6 +48,10 @@
     color: grey;
 }
 
+.adminInfo:focus {
+    color: black;
+}
+
 .password-container {
     display: -ms-flexbox;
     display: flex;
