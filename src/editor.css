@@ -1,3 +1,10 @@
+:root {
+    --lime: #00FF00;
+    --hover-lime: #00c900;
+    --crimson: #DC143C;
+    --hover-crimson: #b30f2f;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -27,6 +34,34 @@ p {
     margin: 10px;
 }
 
+.btn {
+    height: 25px;
+    width: 80px;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+#publish {
+    background-color: var(--lime);
+}
+
+#publish:hover {
+    background-color: var(--hover-lime);
+}
+
+#delete {
+    background-color: var(--crimson);
+}
+
+#delete:hover {
+    background-color: var(--hover-crimson);
+}
+
 .title {
     display: flex;
     flex-direction: column;
@@ -37,4 +72,6 @@ p {
 
 .article-content {
     margin: 2rem;
+    color: grey;
+    opacity: 0.8;
 }

@@ -69,7 +69,6 @@ footer {
     border-color: var(--lavender);
     color: var(--light-goldenrod-yellow);
 }
-
 /* main */
 .content {
     display: flex;
