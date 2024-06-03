@@ -26,8 +26,8 @@ p {
     letter-spacing: 1.5px;
 }
 
-.editable {
-    
+.editable:focus {
+    outline: none;    
 }
 
 .buttons {

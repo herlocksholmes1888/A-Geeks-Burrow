@@ -1,7 +1,5 @@
 function editor() {
-    $(".write").on("click", function(){
-        
-    });
+
 };
 
-$(document).ready();
+$(document).ready(editor);
