@@ -26,6 +26,10 @@ p {
     letter-spacing: 1.5px;
 }
 
+.editable {
+    
+}
+
 .buttons {
     display: flex;
     flex-direction: row;
