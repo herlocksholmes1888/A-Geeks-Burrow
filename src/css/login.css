@@ -2,13 +2,17 @@
     --dark-magenta: #850F8D;
     --steel-pink: #C738BD;
     --lavender: #E49BFF;
-    --light-goldenrod-yellow: #F8F9D7;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    background-image: url("../../public/images/Cagliostro.webp");
+    background-size: 100%;
 }
 
 .foreground-square {
@@ -53,7 +57,6 @@
 }
 
 .password-container {
-    display: -ms-flexbox;
     display: flex;
     background-color: black;
 }
@@ -65,4 +68,18 @@
 
 #togglePassword:hover {
     opacity: 0.8;
+}
+
+#submit {
+    background-color: var(--dark-magenta);
+    color: white;
+    height: 2rem;
+    width: 12rem;
+    border: none;
+}
+
+#submit:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
 }
