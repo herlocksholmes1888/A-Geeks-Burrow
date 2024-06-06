@@ -46,7 +46,11 @@
         });
 
         function focusOut() {
-            if ($(this).hasClass((".article-first-paragraph"))) {
+            if($(this).html() != "" || $(this).html() != "") {
+                return;
+            } 
+
+            if ($(this).hasClass(("article-first-paragraph"))) {
                 $(this).html(defaultParagraph);
             } else {
                 $(this).html(defaultTitle);
