@@ -21,27 +21,39 @@
             </div>
 
             <div class="title">
-                <h1 class="editable" contenteditable="true" onfocusout="returnOriginalText()">Title</h1>
+                <h1 class="editable" contenteditable="true">Title</h1>
             </div>
 
             <div class="article-content">
-                <p id="firstParagraph" class="editable" contenteditable="true" onfocusout="returnOriginalText()">Share your thoughts...</p>
+                <p id="first-paragraph" class="editable article-first-paragraph" contenteditable="true">Share your thoughts...</p>
             </div>
         </div>
     </article>
 
     <script type="text/javascript">
         var articleContent = $(".editable");
-        var title = $("h1").html();
-        var paragraph = $("#firstParagraph").html();
+        var defaultTitle = $("h1").html();
+        var defaultParagraph = $("#first-paragraph").html();
 
-        function returnOriginalText() {
+        function getEditableContent() {
+            let writtenText = $(this).text();
 
+            return writtenText;
         }
 
         articleContent.on("click", function(){
             $(this).html("");
         });
+
+        function focusOut() {
+            if ($(this).hasClass((".article-first-paragraph"))) {
+                $(this).html(defaultParagraph);
+            } else {
+                $(this).html(defaultTitle);
+            }
+        }
+
+        articleContent.on("focusout", focusOut);
     </script>
 </body>
 </html>
