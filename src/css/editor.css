@@ -28,7 +28,7 @@ p {
 }
 
 .editable:focus {
-    outline: none;    
+    /* outline: none; */    
 }
 
 .buttons {

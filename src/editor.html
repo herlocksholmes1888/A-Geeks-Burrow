@@ -35,16 +35,6 @@
         var defaultTitle = $("h1").html();
         var defaultParagraph = $("#first-paragraph").html();
 
-        function getEditableContent() {
-            let writtenText = $(this).text();
-
-            return writtenText;
-        }
-
-        articleContent.on("click", function(){
-            $(this).html("");
-        });
-
         function focusOut() {
             if($(this).html() != "" || $(this).html() != "") {
                 return;
@@ -58,6 +48,18 @@
                 $(this).html(defaultTitle);
             }
         }
+
+        articleContent.on("click", function(){
+            $(this).html("");
+        });
+
+        articleContent.on("keydown", function(e){
+            if (e.key == "Enter") {
+                e.preventDefault();
+                var newParagraph = $("<p contenteditable='true'>Test</p>");
+                $(this).after(newParagraph);
+            }
+        });
 
         articleContent.on("focusout", focusOut);
     </script>
