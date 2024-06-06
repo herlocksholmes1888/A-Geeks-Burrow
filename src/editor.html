@@ -40,8 +40,6 @@
                 return;
             } 
 
-            // This logic should change the more paragaphs get added
-            // but this works for now
             if ($(this).hasClass(("article-first-paragraph"))) {
                 $(this).html(defaultParagraph);
             } else {
@@ -53,6 +51,9 @@
             $(this).html("");
         });
 
+        // This only works with the first paragraph
+        // Find a way to make it work with every paragraph
+        // added by the user, aswell
         articleContent.on("keydown", function(e){
             if (e.key == "Enter") {
                 e.preventDefault();

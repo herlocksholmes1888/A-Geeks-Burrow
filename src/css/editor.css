@@ -27,10 +27,6 @@ p {
     letter-spacing: 1.5px;
 }
 
-.editable:focus {
-    /* outline: none; */    
-}
-
 .buttons {
     display: flex;
     flex-direction: row;
