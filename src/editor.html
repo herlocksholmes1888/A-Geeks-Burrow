@@ -25,39 +25,51 @@
             </div>
 
             <div class="article-content">
-                <p id="first-paragraph" class="editable article-first-paragraph" contenteditable="true">Share your thoughts...</p>
+                <p class="editable article-first-paragraph" contenteditable="true">Share your thoughts...</p>
             </div>
         </div>
     </article>
 
     <script type="text/javascript">
         var articleContent = $(".editable");
-        var defaultTitle = $("h1").html();
-        var defaultParagraph = $("#first-paragraph").html();
+        var defaultParagraph = $(".article-first-paragraph");
+        var defaultTitle = $("h1");
+        var defaultTitleContent = $("h1").html();
+        var defaultParagraphContent = $(".article-first-paragraph").html();
 
+        // Adds default text if the user does not make any changes
+        // gets called on focusout event
         function focusOut() {
-            if($(this).html() != "" || $(this).html() != "") {
+            if($(this).html() != "") {
                 return;
             } 
 
             if ($(this).hasClass(("article-first-paragraph"))) {
-                $(this).html(defaultParagraph);
+                $(this).html(defaultParagraphContent);
             } else {
-                $(this).html(defaultTitle);
+                $(this).html(defaultTitleContent);
             }
         }
 
+        // Deletes default text for the user to edit
         articleContent.on("click", function(){
             $(this).html("");
+        });
+
+        // Prevents the title from being a "multidimensional matrix", so to speak
+        defaultTitle.on("keydown", function(e){
+            if (e.key == "Enter") {
+                e.preventDefault();
+            }
         });
 
         // This only works with the first paragraph
         // Find a way to make it work with every paragraph
         // added by the user, aswell
-        articleContent.on("keydown", function(e){
+        defaultParagraph.on("keydown", function(e){
             if (e.key == "Enter") {
                 e.preventDefault();
-                var newParagraph = $("<p contenteditable='true'>Test</p>");
+                let newParagraph = $("<p class='editable' contenteditable='true'>New paragraph</p>");
                 $(this).after(newParagraph);
             }
         });
