@@ -21,7 +21,7 @@
             </div>
 
             <div class="title">
-                <h1 class="editable" contenteditable="true">Title</h1>
+                <h1 class="editable title" contenteditable="true">Title</h1>
             </div>
 
             <div class="article-content">
@@ -47,8 +47,10 @@
 
             if ($(this).hasClass("article-first-paragraph")) {
                 $(this).html(defaultParagraphContent);
-            } else {
+            } else if ($(this).hasClass("title")) {
                 $(this).html(defaultTitleContent);
+            } else {
+                $(this).html("New paragraph");
             }
         }
 
@@ -60,6 +62,7 @@
                 $(this).after(newParagraph);
                 newParagraph.on("keydown", addNewParagraph);
                 newParagraph.on("click", deleteDefaultText);
+                newParagraph.on("focusout", focusOut);
             }
         }
 
