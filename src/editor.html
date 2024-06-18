@@ -34,6 +34,7 @@
         var articleContent = $(".editable");
         var defaultParagraph = $(".article-first-paragraph");
         var defaultTitle = $("h1");
+
         var defaultTitleContent = $("h1").html();
         var defaultParagraphContent = $(".article-first-paragraph").html();
 
@@ -44,17 +45,34 @@
                 return;
             } 
 
-            if ($(this).hasClass(("article-first-paragraph"))) {
+            if ($(this).hasClass("article-first-paragraph")) {
                 $(this).html(defaultParagraphContent);
             } else {
                 $(this).html(defaultTitleContent);
             }
         }
 
-        // Deletes default text for the user to edit
-        articleContent.on("click", function(){
+        // Adds new paragraph once user hits Enter
+        function addNewParagraph(e) {
+            if (e.key == "Enter") {
+                e.preventDefault();
+                let newParagraph = $("<p class='editable' contenteditable='true'>New paragraph</p>");
+                $(this).after(newParagraph);
+                newParagraph.on("keydown", addNewParagraph);
+                newParagraph.on("click", deleteDefaultText);
+            }
+        }
+
+        // Deletes default text upon user interaction
+        function deleteDefaultText() {
             $(this).html("");
-        });
+        }
+
+        // Deletes default text for the user to edit
+        articleContent.on("click", deleteDefaultText);
+
+        // focusOut call
+        articleContent.on("focusout", focusOut);
 
         // Prevents the title from being a "multidimensional matrix", so to speak
         defaultTitle.on("keydown", function(e){
@@ -63,18 +81,7 @@
             }
         });
 
-        // This only works with the first paragraph
-        // Find a way to make it work with every paragraph
-        // added by the user, aswell
-        defaultParagraph.on("keydown", function(e){
-            if (e.key == "Enter") {
-                e.preventDefault();
-                let newParagraph = $("<p class='editable' contenteditable='true'>New paragraph</p>");
-                $(this).after(newParagraph);
-            }
-        });
-
-        articleContent.on("focusout", focusOut);
+        defaultParagraph.on("keydown", addNewParagraph);
     </script>
 </body>
 </html>
