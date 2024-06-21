@@ -34,23 +34,26 @@
         var articleContent = $(".editable");
         var defaultParagraph = $(".article-first-paragraph");
         var defaultTitle = $("h1");
-
-        var defaultTitleContent = $("h1").html();
-        var defaultParagraphContent = $(".article-first-paragraph").html();
+        var defaultTitleContent = defaultTitle.html().trim();
+        var defaultParagraphContent = defaultParagraph.html().trim();
 
         // Adds default text if the user does not make any changes
         // gets called on focusout event
         function focusOut() {
-            if($(this).html() != "") {
-                return;
-            } 
+            var currentContent = $(this).html().trim();
 
-            if ($(this).hasClass("article-first-paragraph")) {
-                $(this).html(defaultParagraphContent);
-            } else if ($(this).hasClass("title")) {
-                $(this).html(defaultTitleContent);
-            } else {
-                $(this).html("New paragraph");
+            // For some god forsaken reason, sometimes currentContent will 
+            // contain a <br> value instead of a simple empty string.
+            // I do not understand WHY it happens but this accounts for it... 
+            // for now :)
+            if (currentContent === "<br>" || currentContent === "") {
+                if ($(this).hasClass("article-first-paragraph")) {
+                    $(this).html(defaultParagraphContent);
+                } else if ($(this).hasClass("title")) {
+                    $(this).html(defaultTitleContent);
+                } else {
+                    $(this).html("New paragraph");
+                }
             }
         }
 
@@ -60,6 +63,7 @@
                 e.preventDefault();
                 let newParagraph = $("<p class='editable' contenteditable='true'>New paragraph</p>");
                 $(this).after(newParagraph);
+                
                 newParagraph.on("keydown", addNewParagraph);
                 newParagraph.on("click", deleteDefaultText);
                 newParagraph.on("focusout", focusOut);
@@ -68,7 +72,10 @@
 
         // Deletes default text upon user interaction
         function deleteDefaultText() {
-            $(this).html("");
+            var currentContent = $(this).html().trim();
+
+            if (currentContent === defaultParagraphContent || currentContent === defaultTitleContent) 
+                $(this).html("");
         }
 
         // Deletes default text for the user to edit
@@ -84,6 +91,7 @@
             }
         });
 
+        // Adds new paragraph
         defaultParagraph.on("keydown", addNewParagraph);
     </script>
 </body>
