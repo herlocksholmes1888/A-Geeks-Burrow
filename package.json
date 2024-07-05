@@ -4,8 +4,7 @@
     "body-parser": "^1.20.2",
     "ejs": "^3.1.10",
     "express.js": "^1.0.0",
-    "nodemon": "^3.1.2",
-    "typescript": "^5.4.5"
+    "nodemon": "^3.1.2"
   },
   "name": "a-geeks-burrow",
   "description": "A personal blog application",
@@ -23,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/herlocksholmes1888/A-Geeks-Burrow/issues"
   },
-  "homepage": "https://github.com/herlocksholmes1888/A-Geeks-Burrow#readme"
+  "homepage": "https://github.com/herlocksholmes1888/A-Geeks-Burrow#readme",
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  }
 }
