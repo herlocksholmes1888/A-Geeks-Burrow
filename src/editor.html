@@ -7,9 +7,89 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/editor.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Editor</title>
+
+    <style>
+        :root {
+            --lime: #00FF00;
+            --hover-lime: #00c900;
+            --crimson: #DC143C;
+            --hover-crimson: #b30f2f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-family: "Jacquard 12", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 45pt;
+            cursor: auto;
+        }
+
+        p {
+            font-family: "Sofia Sans Extra Condensed", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 18pt;
+            letter-spacing: 1.5px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
+            gap: 10px;
+            margin: 10px;
+        }
+
+        .btn {
+            height: 25px;
+            width: 80px;
+            border-radius: 10%;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            transition: 0.2s ease-in-out;
+        }
+
+        #publish {
+            background-color: var(--lime);
+        }
+
+        #publish:hover {
+            background-color: var(--hover-lime);
+        }
+
+        #delete {
+            background-color: var(--crimson);
+        }
+
+        #delete:hover {
+            background-color: var(--hover-crimson);
+        }
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .article-content {
+            margin: 2rem;
+            color: grey;
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
     <article>
