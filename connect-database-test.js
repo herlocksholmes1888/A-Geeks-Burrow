@@ -13,3 +13,15 @@ sequelize.authenticate().then(function(){
 }).catch(function(err){
     console.log("ERROR: " + err);
 });
+
+// This is a Sequelize model, which creates a table
+const Article = sequelize.define("Article", {
+    title: {
+        type: Sequelize.STRING
+    },
+    content: {
+        type: Sequelize.TEXT
+    }
+});
+
+Article.sync({force: true});
