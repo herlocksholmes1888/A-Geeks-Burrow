@@ -1,8 +1,6 @@
 import { Sequelize } from "sequelize"
 import "dotenv/config"
 
-// This is very unsafe, as it reveals the user and password of the database 
-// of an open source project
 // TODO: Learn about SQL migrations
 const sequelize = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_USER, process.env.DATABASE_PASSWORD, {
     host: 'localhost',
