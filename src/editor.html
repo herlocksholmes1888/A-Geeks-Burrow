@@ -7,89 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/editor.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Editor</title>
-
-    <style>
-        :root {
-            --lime: #00FF00;
-            --hover-lime: #00c900;
-            --crimson: #DC143C;
-            --hover-crimson: #b30f2f;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        h1 {
-            font-family: "Jacquard 12", system-ui;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 45pt;
-            cursor: auto;
-        }
-
-        p {
-            font-family: "Sofia Sans Extra Condensed", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            font-size: 18pt;
-            letter-spacing: 1.5px;
-        }
-
-        .buttons {
-            display: flex;
-            flex-direction: row;
-            justify-content: right;
-            gap: 10px;
-            margin: 10px;
-        }
-
-        .btn {
-            height: 25px;
-            width: 80px;
-            border-radius: 10%;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: scale(1.1);
-            transition: 0.2s ease-in-out;
-        }
-
-        #publish {
-            background-color: var(--lime);
-        }
-
-        #publish:hover {
-            background-color: var(--hover-lime);
-        }
-
-        #delete {
-            background-color: var(--crimson);
-        }
-
-        #delete:hover {
-            background-color: var(--hover-crimson);
-        }
-
-        .title {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            margin-top: 1.5rem;
-        }
-
-        .article-content {
-            margin: 2rem;
-            color: grey;
-            opacity: 0.8;
-        }
-    </style>
 </head>
 <body>
     <article>
@@ -105,17 +25,21 @@
             </div>
 
             <div class="article-content">
-                <p class="editable article-first-paragraph" contenteditable="true">Share your thoughts...</p>
+                <p class="editable firstParagraph" contenteditable="true">Share your thoughts...</p>
             </div>
         </div>
     </article>
 
     <script type="text/javascript">
         var articleContent = $(".editable");
-        var defaultParagraph = $(".article-first-paragraph");
-        var defaultTitle = $("h1");
-        var defaultTitleContent = defaultTitle.html().trim();
-        var defaultParagraphContent = defaultParagraph.html().trim();
+        var articleFirstParagraph = $(".firstParagraph");
+        var articleTitle = $(".title");
+
+        const defaultContent = {
+                title: "Title",
+                firstParagraph: "Share your thoughts...",
+                newParagraph: "New paragraph"
+        }
 
         // Adds default text if the user does not make any changes
         // gets called on focusout event
@@ -124,16 +48,17 @@
 
             // For some god forsaken reason, sometimes currentContent will 
             // contain a <br> value instead of a simple empty string.
-            // I do not understand WHY it happens but this accounts for it... 
-            // for now :)
+            // I do not understand WHY it happens but this accounts for it
             if (currentContent === "<br>" || currentContent === "") {
-                if ($(this).hasClass("article-first-paragraph")) {
-                    $(this).html(defaultParagraphContent);
-                } else if ($(this).hasClass("title")) {
-                    $(this).html(defaultTitleContent);
-                } else {
-                    $(this).html("New paragraph");
-                }
+                // All editable content has 2 classes: editable and
+                // a specific class that says whether it's a paragraph or a title
+                // due to that, we perform a slice, so that textObjectClass
+                // only includes the specific class
+                const textObjectClass = $(this).attr("class").slice(9);
+                console.log("Affected object: ", textObjectClass);
+                const newObjectContent = defaultContent[textObjectClass] || "New paragraph";
+
+                $(this).html(newObjectContent);
             }
         }
 
@@ -141,7 +66,7 @@
         function addNewParagraph(e) {
             if (e.key == "Enter") {
                 e.preventDefault();
-                let newParagraph = $("<p class='editable' contenteditable='true'>New paragraph</p>");
+                let newParagraph = $("<p class='editable newParagaph' contenteditable='true'>New paragraph</p>");
                 $(this).after(newParagraph);
                 
                 newParagraph.on("keydown", addNewParagraph);
@@ -154,7 +79,7 @@
         function deleteDefaultText() {
             var currentContent = $(this).html().trim();
 
-            if (currentContent === defaultParagraphContent || currentContent === defaultTitleContent) 
+            if (currentContent === defaultContent.firstParagraph || currentContent === defaultContent.title || currentContent === "New paragraph") 
                 $(this).html("");
         }
 
@@ -165,14 +90,14 @@
         articleContent.on("focusout", focusOut);
 
         // Prevents the title from being a "multidimensional matrix", so to speak
-        defaultTitle.on("keydown", function(e){
+        articleTitle.on("keydown", function(e){
             if (e.key == "Enter") {
                 e.preventDefault();
             }
         });
 
         // Adds new paragraph
-        defaultParagraph.on("keydown", addNewParagraph);
+        articleFirstParagraph.on("keydown", addNewParagraph);
     </script>
 </body>
 </html>
