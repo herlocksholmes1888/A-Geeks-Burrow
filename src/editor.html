@@ -38,7 +38,6 @@
         const defaultContent = {
                 title: "Title",
                 firstParagraph: "Share your thoughts...",
-                newParagraph: "New paragraph"
         }
 
         // Adds default text if the user does not make any changes
@@ -55,7 +54,6 @@
                 // due to that, we perform a slice, so that textObjectClass
                 // only includes the specific class
                 const textObjectClass = $(this).attr("class").slice(9);
-                console.log("Affected object: ", textObjectClass);
                 const newObjectContent = defaultContent[textObjectClass] || "New paragraph";
 
                 $(this).html(newObjectContent);
@@ -79,7 +77,8 @@
         function deleteDefaultText() {
             var currentContent = $(this).html().trim();
 
-            if (currentContent === defaultContent.firstParagraph || currentContent === defaultContent.title || currentContent === "New paragraph") 
+            const contents = [defaultContent.title, defaultContent.firstParagraph, "New paragraph"];
+            if (contents.includes(currentContent)) 
                 $(this).html("");
         }
 
