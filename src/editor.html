@@ -16,7 +16,7 @@
         <div class="article-container">
             <div class="buttons">
                 <button class="btn" id="publish">Publish</button>
-                <button class="btn" id="save-draft">Draft</button>
+                <button class="btn" id="saveDraft">Draft</button>
                 <button class="btn" id="delete">Delete</button>
             </div>
 
@@ -62,9 +62,9 @@
                 let newParagraph = $("<p class='editable newParagaph' contenteditable='true'>New paragraph</p>");
                 $(this).after(newParagraph);
                 
-                newParagraph.on("keydown", addNewParagraph);
-                newParagraph.on("click", deleteDefaultText);
-                newParagraph.on("focusout", focusOut);
+                newParagraph.on("keydown", addNewParagraphUponHittingEnter);
+                newParagraph.on("click", deleteDefaultTextUponUserInteraction);
+                newParagraph.on("focusout", replaceBlankHTMLElementWithDefaultContent);
             }
         }
 
