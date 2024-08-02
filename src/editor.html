@@ -35,33 +35,28 @@
         var articleFirstParagraph = $(".firstParagraph");
         var articleTitle = $(".title");
 
-        const defaultContent = {
+        const defaultHTMLParagraphElementContent = {
                 title: "Title",
                 firstParagraph: "Share your thoughts...",
         }
 
-        // Adds default text if the user does not make any changes
-        // gets called on focusout event
-        function focusOut() {
+        function replaceBlankHTMLElementWithDefaultContent() {
             var currentContent = $(this).html().trim();
 
-            // For some god forsaken reason, sometimes currentContent will 
-            // contain a <br> value instead of a simple empty string.
+            // Sometimes currentContent will contain a <br> value
             // I do not understand WHY it happens but this accounts for it
             if (currentContent === "<br>" || currentContent === "") {
-                // All editable content has 2 classes: editable and
-                // a specific class that says whether it's a paragraph or a title
-                // due to that, we perform a slice, so that textObjectClass
-                // only includes the specific class
+                // All editable content have 2 classes: the generic editable and a
+                // specific class that specifies whether it's a paragraph or a title
+                // Due to that, we perform a slice, to only include the specific class
                 const textObjectClass = $(this).attr("class").slice(9);
-                const newObjectContent = defaultContent[textObjectClass] || "New paragraph";
+                const defaultObjectText = defaultHTMLParagraphElementContent[textObjectClass] || "New paragraph";
 
-                $(this).html(newObjectContent);
+                $(this).html(defaultObjectText);
             }
         }
 
-        // Adds new paragraph once user hits Enter
-        function addNewParagraph(e) {
+        function addNewParagraphUponHittingEnter(e) {
             if (e.key == "Enter") {
                 e.preventDefault();
                 let newParagraph = $("<p class='editable newParagaph' contenteditable='true'>New paragraph</p>");
@@ -73,30 +68,26 @@
             }
         }
 
-        // Deletes default text upon user interaction
-        function deleteDefaultText() {
+        function deleteDefaultTextUponUserInteraction() {
             var currentContent = $(this).html().trim();
 
-            const contents = [defaultContent.title, defaultContent.firstParagraph, "New paragraph"];
+            const contents = [defaultHTMLParagraphElementContent.title, defaultHTMLParagraphElementContent.firstParagraph, "New paragraph"];
             if (contents.includes(currentContent)) 
                 $(this).html("");
         }
 
-        // Deletes default text for the user to edit
-        articleContent.on("click", deleteDefaultText);
+        articleContent.on("click", deleteDefaultTextUponUserInteraction);
 
-        // focusOut call
-        articleContent.on("focusout", focusOut);
+        articleContent.on("focusout", replaceBlankHTMLElementWithDefaultContent);
 
-        // Prevents the title from being a "multidimensional matrix", so to speak
+        // Ensures titles will only account for 1 line
         articleTitle.on("keydown", function(e){
             if (e.key == "Enter") {
                 e.preventDefault();
             }
         });
 
-        // Adds new paragraph
-        articleFirstParagraph.on("keydown", addNewParagraph);
+        articleFirstParagraph.on("keydown", addNewParagraphUponHittingEnter);
     </script>
 </body>
 </html>

@@ -20,7 +20,7 @@
                 <input type="email" class="adminInfo" id="email" name="email" value="admin@email.com">
                 <div class="password-container">
                     <input type="password" class="adminInfo" id="password" name="password" value="password">
-                    <i class="far fa-eye" id="togglePassword"></i>
+                    <i class="far fa-eye" id="toggleButton"></i>
                 </div>
                 <input type="submit" id="submit" value="Enter">
                 <!--Add "forgot password" redirect-->
@@ -30,11 +30,11 @@
 
     <script type="text/javascript">
         const password = $("#password");
-        const togglePassword = $("#togglePassword");
+        const passwordToggleButton = $("#toggleButton");
 
-        togglePassword.on("click", function(){
-            const toggleType = password.attr("type") === "password" ? "text" : "password";
-            password.attr("type", toggleType);
+        passwordToggleButton.on("click", function(){
+            const toggleInputPasswordType = password.attr("type") === "password" ? "text" : "password";
+            password.attr("type", toggleInputPasswordType);
         });
     </script>
 </body>
