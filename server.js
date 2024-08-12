@@ -13,12 +13,11 @@ const __dirname = decodeURI(new URL(".", import.meta.url).pathname);
       app.set("view engine", "ejs");
       app.set("views", path.join(__dirname, "views"));
 
-app.get("/", (req, res) => {
-   res.render("index-test");
-});
+// Serve static files from the 'public' directory
+app.use(express.static("public"));
 
-app.get("/editor", (req, res) => {
-   res.sendFile("/src/editor.html", { root: "." });
+app.get("/", (req, res) => {
+   res.render("index");
 });
 
 app.listen(port, () => {
