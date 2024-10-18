@@ -1,0 +1,93 @@
+:root {
+    --dark-magenta: #850F8D;
+    --steel-pink: #C738BD;
+    --lavender: #E49BFF;
+    --light-goldenrod-yellow: #F8F9D7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    height: 5.8rem;
+    padding: 1.5rem;
+}
+
+.social-media {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1.2rem;
+}
+
+.icon {
+    color: white;
+}
+
+.icon:hover {
+    opacity: 0.8;
+}
+
+#copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+.home-content {
+    background-image: url("/images/kirby.webp");
+    background-size: 60px 60px;
+}
+
+/* header */
+.title-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    height: 4.2rem;
+    background-color: var(--steel-pink);
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: white;
+}
+
+#admin {
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 4.5rem;
+    background-color: var(--lavender);
+    border-color: var(--lavender);
+    color: var(--light-goldenrod-yellow);
+}
+/* main */
+.content {
+    display: flex;
+    justify-content: space-between;
+    direction: rtl;
+    margin: 2.5rem;
+}
+
+.right-side {
+    background-color: var(--lavender);
+    height: 30rem;
+    width: 60rem;
+}
+
+.left-side {
+    background-color: var(--dark-magenta);
+    height: 30rem;
+    width: 15rem;
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}

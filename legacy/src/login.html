@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../public/images/pokeball.webp">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="login-content">
+        <div class="foreground-square">
+            <img src="../public/images/kirby-tired.webp" id="kirby-tired">
+            <h1>Login</h1>
+            <form action="#" method="post" id="login">
+                <input type="email" class="adminInfo" id="email" name="email" value="admin@email.com">
+                <div class="password-container">
+                    <input type="password" class="adminInfo" id="password" name="password" value="password">
+                    <i class="far fa-eye" id="toggleButton"></i>
+                </div>
+                <input type="submit" id="submit" value="Enter">
+                <!--Add "forgot password" redirect-->
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const password = $("#password");
+        const passwordToggleButton = $("#toggleButton");
+
+        passwordToggleButton.on("click", function(){
+            const toggleInputPasswordType = password.attr("type") === "password" ? "text" : "password";
+            password.attr("type", toggleInputPasswordType);
+        });
+    </script>
+</body>
+</html>
