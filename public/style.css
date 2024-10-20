@@ -1,0 +1,18 @@
+.header-container {
+    margin: 1.5rem;
+}
+
+#header-title {
+    font-family: "Cherish", cursive;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 35pt;
+}
+
+#search-bar-placeholder {
+    font-family: "Sarala", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14pt;
+}
+  
