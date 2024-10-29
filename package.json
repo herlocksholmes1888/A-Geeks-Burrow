@@ -4,7 +4,7 @@
   "description": "Personal blog web application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-css": "tailwindcss build -i styles.css -o public/styles.css"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "learning",
     "languages"
   ],
-  "author": "Luisa Lopes",
+  "author": "Luisa Frugoli V. Lopes",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/herlocksholmes1888/A-Geeks-Burrow/issues"
@@ -28,6 +28,7 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.1",
-    "mongoose": "^8.7.1"
+    "mongoose": "^8.7.1",
+    "tailwindcss": "^3.4.14"
   }
 }
