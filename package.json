@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Personal blog web application",
   "main": "index.js",
-  "scripts": {
-    "build-css": "tailwindcss build -i styles.css -o public/styles.css"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/herlocksholmes1888/A-Geeks-Burrow.git"
@@ -28,7 +26,6 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^4.21.1",
-    "mongoose": "^8.7.1",
-    "tailwindcss": "^3.4.14"
+    "mongoose": "^8.7.1"
   }
 }
