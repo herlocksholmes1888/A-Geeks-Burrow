@@ -51,4 +51,26 @@
     color: var(--font-gray);
     padding: 8px;
 }
-  
+
+/* RESPONSIVENESS */
+@media screen and (max-width: 100px) {
+    #header-title {
+        font-size: 12pt;
+    }
+}
+
+@media screen and (min-width: 600px) {
+
+}
+
+@media (min-width: 500px) and (max-width: 767.98px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
