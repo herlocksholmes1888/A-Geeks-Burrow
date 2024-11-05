@@ -53,24 +53,34 @@
 }
 
 /* RESPONSIVENESS */
-@media screen and (max-width: 100px) {
+@media (min-width: 100px) and (max-width: 600px) {
     #header-title {
-        font-size: 12pt;
+        font-size: 22pt;
+    }
+
+    #search-bar-placeholder {
+        font-size: 8pt;   
+    }
+
+    .search-bar {
+        width: 8em;
+    }
+
+    .search-bar i {
+        font-size: 8px;
     }
 }
 
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) and (max-width: 850px) {
+    #header-title {
+        font-size: 30pt;
+    }
 
-}
+    #search-bar-placeholder {
+        font-size: 12pt;   
+    }
 
-@media (min-width: 500px) and (max-width: 767.98px) {
-
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-
-}
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
-
+    .search-bar {
+        width: 14em;
+    }
 }

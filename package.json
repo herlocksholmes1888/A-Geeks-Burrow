@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Personal blog web application",
   "main": "index.js",
-  "scripts": {},
+  "scripts": { },
   "repository": {
     "type": "git",
     "url": "https://github.com/herlocksholmes1888/A-Geeks-Burrow.git"
