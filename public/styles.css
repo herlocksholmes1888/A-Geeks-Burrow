@@ -52,6 +52,51 @@
     padding: 8px;
 }
 
+/* HERO SECTION */
+.hero-content {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.hero-page-summary {
+    margin-left: 8rem;
+    margin-top: 1rem;
+    width: 15rem;
+}
+
+.page-summary {
+    font-family: "Arial", sans-serif;
+    font-weight: 800;
+    font-size: 28pt;
+}
+
+.author-section {
+    font-family: "Arial", sans-serif;
+    margin: 2.8rem;
+    width: 28rem;
+}
+
+.author-picture {
+    float: left;
+    width: 150px;
+    height: 150px;
+    margin-right: 18px;
+    border-radius: 80%;
+}
+
+.author-summary-title {
+    font-size: 18pt;
+}
+
+.author-summary {
+    font-size: 14pt;
+}
+
+.author-summary {
+    color: var(--background-gray);
+}
+
 /* RESPONSIVENESS */
 @media (min-width: 100px) and (max-width: 600px) {
     #header-title {
