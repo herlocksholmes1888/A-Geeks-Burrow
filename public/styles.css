@@ -22,6 +22,7 @@
 }
  
 #header-title {
+    margin-left: 1rem;
     font-family: "Cherish", cursive;
     font-weight: 700;
     font-style: normal;
@@ -129,3 +130,40 @@
         width: 14em;
     }
 }
+
+@media screen and (min-width: 850px) {
+    #header-title {
+        font-size: 45pt;
+    }
+
+    .search-bar {
+        margin-top: 1rem;
+    }
+
+    .hero-page-summary {
+        width: 20rem;
+    }
+
+    .page-summary {
+        font-size: 32pt;
+    }
+
+    .author-section {
+        margin-right: 5rem;
+        width: 32rem;
+    }
+
+    .author-picture {
+        height: 180px;
+        width: 180px;
+    }
+
+    .author-summary-title {
+        font-size: 22pt;
+    }
+
+    .author-summary {
+        font-size: 16pt;
+    }
+}
+
