@@ -99,25 +99,49 @@
 }
 
 /* RESPONSIVENESS */
-@media (min-width: 100px) and (max-width: 600px) {
+@media (max-width: 600px) {
     #header-title {
-        font-size: 22pt;
+        font-size: 26pt;
     }
 
     #search-bar-placeholder {
-        font-size: 8pt;   
+        font-size: 10pt;   
     }
 
     .search-bar {
-        width: 8em;
+        width: 10em;
     }
 
     .search-bar i {
-        font-size: 8px;
+        font-size: 10px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-page-summary {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        margin-left: 4%;
+        align-items: center;
+    }
+
+    .author-section {
+        margin-left: 6.4rem;
+        width: 13rem;
+        align-items: center;
+    }
+
+    .author-picture {
+        float: none;
+        margin-bottom: 10px;
+        margin-right: 0px;
     }
 }
 
-@media (min-width: 600px) and (max-width: 850px) {
+@media (min-width: 601px) and (max-width: 850px) {
     #header-title {
         font-size: 30pt;
     }
@@ -131,7 +155,8 @@
     }
 }
 
-@media screen and (min-width: 850px) {
+
+@media (min-width: 1370px) {
     #header-title {
         font-size: 45pt;
     }
