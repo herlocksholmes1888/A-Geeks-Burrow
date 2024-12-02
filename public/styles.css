@@ -99,9 +99,9 @@
 }
 
 /* RESPONSIVENESS */
-@media (max-width: 600px) {
+@media (min-width: 300px) and (max-width: 890px) {
     #header-title {
-        font-size: 26pt;
+        font-size: 28pt;
     }
 
     #search-bar-placeholder {
@@ -141,7 +141,7 @@
     }
 }
 
-@media (min-width: 601px) and (max-width: 850px) {
+@media (min-width: 601px) and (max-width: 890px) {
     #header-title {
         font-size: 30pt;
     }
@@ -154,6 +154,7 @@
         width: 14em;
     }
 }
+
 
 
 @media (min-width: 1370px) {
