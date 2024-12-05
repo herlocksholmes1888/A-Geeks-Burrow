@@ -45,12 +45,12 @@
 }
 
 #search-bar-placeholder {
-    font-family: "Sarala", sans-serif;
+    font-family: "Arial", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 14pt;
+    font-size: 12pt;
     color: var(--font-gray);
-    padding: 8px;
+    padding: 12px;
 }
 
 /* HERO SECTION */
@@ -96,6 +96,46 @@
 
 .author-summary {
     color: var(--background-gray);
+}
+
+/* MAIN CONTENT */
+main {
+    margin: 28px;
+    font-family: "Arial", "sans-serif";
+}
+
+.new-article {
+    display: flex;
+    justify-content: right;
+}
+
+.article-title {
+    font-size: 20pt;
+    padding-bottom: 4px;
+}
+
+.article-content {
+    font-size: 14pt;
+    padding-bottom: 6px;
+}
+
+.buttons {
+    padding-bottom: 24px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+#previous,
+#next {
+    width: 100px;
+    height: 50px;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
 }
 
 /* RESPONSIVENESS */
