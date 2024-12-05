@@ -158,6 +158,42 @@ button:hover {
     color: var(--font-gray);
 }
 
+/* FOOTER */
+footer {
+    padding: 30px;
+    background-color: var(--background-dark-gray);
+    color: var(--white)
+}
+
+a {
+    color: var(--white);
+}
+
+a:hover {
+    color: var(--background-light-gray);
+}
+
+.footer-information {
+    margin-bottom: 20px;
+}
+
+.footer-information h4 {
+    font-family: "Cherish", "cursive";
+    font-size: 26pt;
+    margin-bottom: 20px;
+}
+
+.copyright-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#copyright {
+    font-family: "Arial", "sans-serif";
+    font-size: 14pt;
+}
+
 /* RESPONSIVENESS */
 @media (min-width: 300px) and (max-width: 890px) {
     #header-title {
