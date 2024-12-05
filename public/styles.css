@@ -2,7 +2,8 @@
     --black: #000;
     --white: #fff;
     --font-gray: #d3d3d3;
-    --background-gray: #696969;
+    --background-light-gray: #696969;
+    --background-dark-gray: #2C2C2C;
 }
 
 * {
@@ -35,7 +36,7 @@
     display: flex;
     justify-content: space-between;
     border-radius: 25px;
-    background-color: var(--background-gray);
+    background-color: var(--background-light-gray);
     width: 24em;
 }
 
@@ -95,7 +96,7 @@
 }
 
 .author-summary {
-    color: var(--background-gray);
+    color: var(--background-light-gray);
 }
 
 /* MAIN CONTENT */
@@ -123,6 +124,19 @@ main {
     padding-bottom: 24px;
 }
 
+button {
+    /* all: unset; */
+    border: none; 
+    padding: 0; 
+    background: none; 
+    font: inherit;
+    color: inherit;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 .options {
     display: flex;
     justify-content: center;
@@ -136,6 +150,12 @@ main {
     background-color: var(--black);
     color: var(--white);
     border: none;
+}
+
+#previous:hover,
+#next:hover {
+    background-color: var(--background-dark-gray);
+    color: var(--font-gray);
 }
 
 /* RESPONSIVENESS */
