@@ -53,13 +53,29 @@
             <button type="button" id="new-article"><i class="fa-solid fa-plus fa-lg"></i></button>
         </div>
 
+        <dialog>
+            <div class="writing-modal">
+                <div class="writing-modal-container">
+                    <div class="writing-modal-content">
+                        <div class="article-title">Title<input type="text"></input></div>
+                        <div class="article-content">Text<input type="text"></input></div>
+                        <div class="buttons">
+                            <button type="button" class="publish"><i class="fa-solid fa-upload"></i></button>
+                            <button type="button" class="save"><i class="fa-solid fa-floppy-disk"></i></button>
+                            <button type="button" class="delete"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </dialog>
+
         <div class="article-section">
             <article>
                 <div class="article-title"><h4>Article Title</h4></div>
                 <div class="article-content"><p>Lorem ipsum odor amet, consectetuer adipiscing elit. Duis aenean sollicitudin vel proin eget auctor commodo. Inceptos interdum egestas hac amet cubilia felis praesent. Euismod dui habitasse habitasse cubilia fringilla venenatis. Suscipit morbi vestibulum pellentesque dis vestibulum pulvinar cubilia. Ultrices lobortis euismod inceptos maecenas volutpat torquent enim magna...</p></div>
                 <div class="buttons">
-                    <button type="button" id="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
-                    <button type="button" id="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
+                    <button type="button" class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
+                    <button type="button" class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
                 </div>
             </article>
 
@@ -67,8 +83,8 @@
                 <div class="article-title"><h4>Article Title</h4></div>
                 <div class="article-content"><p>Lorem ipsum odor amet, consectetuer adipiscing elit. Duis aenean sollicitudin vel proin eget auctor commodo. Inceptos interdum egestas hac amet cubilia felis praesent. Euismod dui habitasse habitasse cubilia fringilla venenatis. Suscipit morbi vestibulum pellentesque dis vestibulum pulvinar cubilia. Ultrices lobortis euismod inceptos maecenas volutpat torquent enim magna...</p></div>
                 <div class="buttons">
-                    <button type="button" id="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
-                    <button type="button" id="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
+                    <button type="button" class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
+                    <button type="button" class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
                 </div>
             </article>
 
@@ -76,8 +92,8 @@
                 <div class="article-title"><h4>Article Title</h4></div>
                 <div class="article-content"><p>Lorem ipsum odor amet, consectetuer adipiscing elit. Duis aenean sollicitudin vel proin eget auctor commodo. Inceptos interdum egestas hac amet cubilia felis praesent. Euismod dui habitasse habitasse cubilia fringilla venenatis. Suscipit morbi vestibulum pellentesque dis vestibulum pulvinar cubilia. Ultrices lobortis euismod inceptos maecenas volutpat torquent enim magna...</p></div>
                 <div class="buttons">
-                    <button type="button" id="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
-                    <button type="button" id="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
+                    <button type="button" class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
+                    <button type="button" class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
                 </div>
             </article>
 
@@ -111,6 +127,13 @@
 
             Afterwards, you learn how to make it so that every change to the web document gets sent to a MongoDB database
         */
+
+        const $newArticleButton = document.getElementById("new-article");
+        const $editButton = document.getElementsByClassName("edit");
+        const $publishButton = document.getElementsByClassName("publish");
+        const $saveButton = document.getElementsByClassName("save");
+        const $deleteButton = document.getElementsByClassName("delete");
+
     </script>
 </body>
 </html>
