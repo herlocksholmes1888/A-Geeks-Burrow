@@ -129,11 +129,39 @@
         */
 
         const $newArticleButton = document.getElementById("new-article");
-        const $editButton = document.getElementsByClassName("edit");
-        const $publishButton = document.getElementsByClassName("publish");
-        const $saveButton = document.getElementsByClassName("save");
-        const $deleteButton = document.getElementsByClassName("delete");
+        const $modal = document.querySelector("dialog");
+        const $editButtons = document.getElementsByClassName("edit");
+        const $publishButtons = document.getElementsByClassName("publish");
+        const $saveButtons = document.getElementsByClassName("save");
+        const $deleteButtons = document.getElementsByClassName("delete");
 
+        $newArticleButton.onclick = () => {
+            $modal.showModal();
+        };
+
+        for (let button of $editButtons) {
+            button.onclick = () => {
+                $modal.showModal();
+            }
+        }
+
+        for (let button of $publishButtons) {
+            button.onclick = () => {
+                $modal.close();
+            }
+        }
+
+        for (let button of $saveButtons) {
+            button.onclick = () => {
+                $modal.close();
+            }
+        }
+
+        for (let button of $deleteButtons) {
+            button.onclick = () => {
+                $modal.close();
+            }
+        }
     </script>
 </body>
 </html>
