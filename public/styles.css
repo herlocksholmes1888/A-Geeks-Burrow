@@ -158,6 +158,23 @@ button:hover {
     color: var(--font-gray);
 }
 
+/* EDITING MODAL */
+dialog {
+    margin: auto;
+    width: 80%; 
+    height: auto;
+    
+    /* Positioning the dialog at the center of the page */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
 /* FOOTER */
 footer {
     padding: 30px;
