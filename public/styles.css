@@ -169,6 +169,25 @@ dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.5); 
 }
 
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.modal-article-title, .modal-article-content {
+    width: 95%;
+    margin: 15px;
+}
+
+.input-title, .input-content {
+    width: 100%;
+}
+
+.input-content {
+    height: 350px;
+}
+
 /* FOOTER */
 footer {
     padding: 30px;
