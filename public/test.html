@@ -69,7 +69,7 @@
             </form>
         </dialog>
 
-        <div class="article-section">
+        <div id="article-section">
             <article>
                 <div class="article-title"><h4>Article Title</h4></div>
                 <div class="article-content"><p>Lorem ipsum odor amet, consectetuer adipiscing elit. Duis aenean sollicitudin vel proin eget auctor commodo. Inceptos interdum egestas hac amet cubilia felis praesent. Euismod dui habitasse habitasse cubilia fringilla venenatis. Suscipit morbi vestibulum pellentesque dis vestibulum pulvinar cubilia. Ultrices lobortis euismod inceptos maecenas volutpat torquent enim magna...</p></div>
@@ -131,8 +131,6 @@
         const $form = document.querySelector("form");
 
         const $newArticleButton = document.getElementById("new-article");
-        const $inputTitle = document.getElementById("input-title");
-        const $inputContent = document.getElementById("input-content");
 
         const $editButtons = document.getElementsByClassName("edit");
         const $publishButtons = document.getElementsByClassName("publish");
@@ -156,8 +154,13 @@
         })
 
         $form.addEventListener("submit", function newArticleController(e) {
-            // e.preventDefault();
-            alert($inputTitle.value);
+            e.preventDefault();
+
+            const $articleSection = document.getElementById("article-section");
+            const $inputTitle = document.getElementById("input-title");
+            const $inputContent = document.getElementById("input-content");
+            
+            $articleSection.insertAdjacentHTML("afterbegin", $inputContent.value);
         })
 
         for (let button of $editButtons) {
