@@ -180,11 +180,11 @@ dialog::backdrop {
     margin: 15px;
 }
 
-.input-title, .input-content {
+#input-title, #input-content {
     width: 100%;
 }
 
-.input-content {
+#input-content {
     height: 350px;
 }
 

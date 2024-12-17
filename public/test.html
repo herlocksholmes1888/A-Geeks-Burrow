@@ -57,12 +57,12 @@
             <form>
                 <div class="writing-modal-container">
                     <div class="writing-modal-content">
-                        <div class="modal-article-title"><input type="text" class="input-title" placeholder="Title"></input></div>
-                        <div class="modal-article-content"><textarea class="input-content" placeholder="Content"></textarea></div>
+                        <div class="modal-article-title"><input type="text" id="input-title" placeholder="Title"></input></div>
+                        <div class="modal-article-content"><textarea id="input-content" placeholder="Content"></textarea></div>
                         <div class="modal-buttons">
-                            <button type="button" class="publish"><i class="fa-solid fa-upload fa-lg fa-fw"></i></button>
-                            <button type="button" class="save"><i class="fa-solid fa-floppy-disk fa-lg fa-fw"></i></button>
-                            <button type="button" class="delete"><i class="fa-solid fa-trash fa-lg fa-fw"></i></button>
+                            <button type="submit" class="publish"><i class="fa-solid fa-upload fa-lg fa-fw"></i></button>
+                            <button type="submit" class="save"><i class="fa-solid fa-floppy-disk fa-lg fa-fw"></i></button>
+                            <button type="submit" class="delete"><i class="fa-solid fa-trash fa-lg fa-fw"></i></button>
                         </div>
                     </div>
                 </div>
@@ -127,9 +127,13 @@
 
             Afterwards, you learn how to make it so that every change to the web document gets sent to a MongoDB database
         */
+        const $modal = document.querySelector("dialog");
+        const $form = document.querySelector("form");
 
         const $newArticleButton = document.getElementById("new-article");
-        const $modal = document.querySelector("dialog");
+        const $inputTitle = document.getElementById("input-title");
+        const $inputContent = document.getElementById("input-content");
+
         const $editButtons = document.getElementsByClassName("edit");
         const $publishButtons = document.getElementsByClassName("publish");
         const $saveButtons = document.getElementsByClassName("save");
@@ -138,6 +142,23 @@
         $newArticleButton.onclick = () => {
             $modal.showModal();
         };
+
+        $modal.addEventListener("click", e => {
+            const dialogDimensions = $modal.getBoundingClientRect();
+            if (
+                e.clientX < dialogDimensions.left ||
+                e.clientX > dialogDimensions.right ||
+                e.clientY < dialogDimensions.top ||
+                e.clientY > dialogDimensions.bottom
+            ) {
+                $modal.close();
+            }
+        })
+
+        $form.addEventListener("submit", function newArticleController(e) {
+            // e.preventDefault();
+            alert($inputTitle.value);
+        })
 
         for (let button of $editButtons) {
             button.onclick = () => {
@@ -148,6 +169,7 @@
         for (let button of $publishButtons) {
             button.onclick = () => {
                 $modal.close();
+                addNewArticle();
             }
         }
 
@@ -162,18 +184,6 @@
                 $modal.close();
             }
         }
-
-        $modal.addEventListener("click", e => {
-            const dialogDimensions = $modal.getBoundingClientRect();
-            if (
-                e.clientX < dialogDimensions.left ||
-                e.clientX > dialogDimensions.right ||
-                e.clientY < dialogDimensions.top ||
-                e.clientY > dialogDimensions.bottom
-            ) {
-                $modal.close();
-            }
-})
     </script>
 </body>
 </html>
