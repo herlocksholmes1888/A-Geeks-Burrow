@@ -161,6 +161,9 @@
             const $inputContent = document.getElementById("input-content");
             
             $articleSection.insertAdjacentHTML("afterbegin", $inputContent.value);
+
+            $inputTitle.value = "";
+            $inputContent.value = "";
         })
 
         for (let button of $editButtons) {
