@@ -103,10 +103,12 @@
 
             const newArticle = `
                 <div class="article-summary">
-                    <h3>${$inputTitle.value}</h3>
-                    <p>${$inputContent.value}</p>
-                    <button class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
-                    <button class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
+                    <div class="article-title"><h4>${$inputTitle.value}</h4></div>
+                    <div class="article-content"><p>${$inputContent.value}</p></div>
+                    <div class="buttons">
+                        <button class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
+                        <button class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
+                    </div>
                 </div>
                 
             `;

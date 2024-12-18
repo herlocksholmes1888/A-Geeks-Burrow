@@ -159,11 +159,23 @@
             const $articleSection = document.getElementById("article-section");
             const $inputTitle = document.getElementById("input-title");
             const $inputContent = document.getElementById("input-content");
+
+            const newArticle = `
+                <div class="article-summary">
+                    <h3>${$inputTitle.value}</h3>
+                    <p>${$inputContent.value}</p>
+                    <button class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
+                    <button class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
+                </div>
+                
+            `;
             
-            $articleSection.insertAdjacentHTML("afterbegin", $inputContent.value);
+            $articleSection.insertAdjacentHTML("afterbegin", newArticle);
 
             $inputTitle.value = "";
             $inputContent.value = "";
+
+            modal.close();
         })
 
         for (let button of $editButtons) {
