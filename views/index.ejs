@@ -61,8 +61,8 @@
     <script>
         /*
             HOW TO MAKE A SIMPLE CRUD:
-                1. Add a simple edit modal. You may change it in the future for the prototype's writing page
-                2. DOM Manipulation in order to add the input to the page in order
+                1. Add a simple edit modal. You may change it in the future for the prototype's writing page ✅
+                2. DOM Manipulation in order to add the input to the page in order ✅
                 3. DOM Manipulation in order to remove the input 
                 4. DOM Manipulation in order to edit the input
 
@@ -82,6 +82,7 @@
             $modal.showModal();
         };
 
+        // Closes modal when user clicks outside of dialog bounds
         $modal.addEventListener("click", e => {
             const dialogDimensions = $modal.getBoundingClientRect();
             if (
@@ -110,7 +111,6 @@
                         <button class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
                     </div>
                 </div>
-                
             `;
 
             $articleSection.insertAdjacentHTML("afterbegin", newArticle);

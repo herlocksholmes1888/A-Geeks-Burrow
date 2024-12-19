@@ -120,8 +120,8 @@
     <script>
         /*
             HOW TO MAKE A SIMPLE CRUD:
-                1. Add a simple edit modal. You may change it in the future for the prototype's writing page
-                2. DOM Manipulation in order to add the input to the page in order
+                1. Add a simple edit modal. You may change it in the future for the prototype's writing page ✅
+                2. DOM Manipulation in order to add the input to the page in order ✅
                 3. DOM Manipulation in order to remove the input 
                 4. DOM Manipulation in order to edit the input
 
@@ -141,6 +141,7 @@
             $modal.showModal();
         };
 
+        // Closes modal when user clicks outside of dialog bounds
         $modal.addEventListener("click", e => {
             const dialogDimensions = $modal.getBoundingClientRect();
             if (
@@ -160,17 +161,22 @@
             const $inputTitle = document.getElementById("input-title");
             const $inputContent = document.getElementById("input-content");
 
-            const newArticle = `
-                <div class="article-summary">
-                    <h3>${$inputTitle.value}</h3>
-                    <p>${$inputContent.value}</p>
-                    <button class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
-                    <button class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
-                </div>
-                
-            `;
+            let newArticle;
             
-            $articleSection.insertAdjacentHTML("afterbegin", newArticle);
+            if ($inputTitle.value != "" && $inputContent.value != "") {
+                newArticle = `
+                    <div class="article-summary">
+                        <div class="article-title"><h4>${$inputTitle.value}</h4></div>
+                        <div class="article-content"><p>${$inputContent.value}</p></div>
+                        <div class="buttons">
+                            <button class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
+                            <button class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
+                        </div>
+                    </div>
+                `;
+
+                $articleSection.insertAdjacentHTML("afterbegin", newArticle);
+            } 
 
             $inputTitle.value = "";
             $inputContent.value = "";
