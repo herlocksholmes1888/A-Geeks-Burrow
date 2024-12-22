@@ -52,7 +52,7 @@
         <div class="new-article">
             <button type="button" id="new-article"><i class="new-article fa-solid fa-plus fa-lg"></i></button>
         </div>
-        
+
         <dialog id="page-dialog">
             <form>
                 <div class="writing-modal-container">
@@ -170,6 +170,8 @@
                     </article>
                 `;
 
+                // TODO: Add logic that verifies if the user is editing an article and
+                // if yes, change the article instead of adding a new one
                 $articleSection.insertAdjacentHTML("afterbegin", newArticle);
 
                 $inputTitle.value = "";
@@ -192,6 +194,13 @@
 
                     $modal.showModal();
                 }
+            }
+
+            if (e.target.closest('.delete')) {
+                const $article = e.target.closest("article");
+                $article.remove();
+
+                $modal.close();
             }
         });
     </script>
