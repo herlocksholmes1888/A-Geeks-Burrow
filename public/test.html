@@ -53,7 +53,7 @@
             <button type="button" id="new-article"><i class="fa-solid fa-plus fa-lg"></i></button>
         </div>
 
-        <dialog>
+        <dialog id="page-dialog">
             <form>
                 <div class="writing-modal-container">
                     <div class="writing-modal-content">
@@ -131,17 +131,13 @@
         const $form = document.querySelector("form");
 
         const $newArticleButton = document.getElementById("new-article");
-
-        const $editButtons = document.getElementsByClassName("edit");
-        const $publishButtons = document.getElementsByClassName("publish");
-        const $saveButtons = document.getElementsByClassName("save");
-        const $deleteButtons = document.getElementsByClassName("delete");
+        const $articleSection = document.getElementById("article-section");
 
         $newArticleButton.onclick = () => {
             $modal.showModal();
         };
 
-        // Closes modal when user clicks outside of dialog bounds
+        // Close modal when clicking outside its bounds
         $modal.addEventListener("click", e => {
             const dialogDimensions = $modal.getBoundingClientRect();
             if (
@@ -152,62 +148,39 @@
             ) {
                 $modal.close();
             }
-        })
+        });
 
         $form.addEventListener("submit", function newArticleController(e) {
             e.preventDefault();
 
-            const $articleSection = document.getElementById("article-section");
             const $inputTitle = document.getElementById("input-title");
             const $inputContent = document.getElementById("input-content");
 
-            let newArticle;
-            
-            if ($inputTitle.value != "" && $inputContent.value != "") {
-                newArticle = `
-                    <div class="article-summary">
+            if ($inputTitle.value && $inputContent.value) {
+                const newArticle = `
+                    <article>
                         <div class="article-title"><h4>${$inputTitle.value}</h4></div>
                         <div class="article-content"><p>${$inputContent.value}</p></div>
                         <div class="buttons">
-                            <button class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
-                            <button class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
+                            <button type="button" class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
+                            <button type="button" class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
                         </div>
-                    </div>
+                    </article>
                 `;
 
                 $articleSection.insertAdjacentHTML("afterbegin", newArticle);
-            } 
 
-            $inputTitle.value = "";
-            $inputContent.value = "";
+                $inputTitle.value = "";
+                $inputContent.value = "";
+                $modal.close();
+            }
+        });
 
-            modal.close();
-        })
-
-        for (let button of $editButtons) {
-            button.onclick = () => {
+        $articleSection.addEventListener("click", (e) => {
+            if (e.target.closest('.edit')) {
                 $modal.showModal();
             }
-        }
-
-        for (let button of $publishButtons) {
-            button.onclick = () => {
-                $modal.close();
-                addNewArticle();
-            }
-        }
-
-        for (let button of $saveButtons) {
-            button.onclick = () => {
-                $modal.close();
-            }
-        }
-
-        for (let button of $deleteButtons) {
-            button.onclick = () => {
-                $modal.close();
-            }
-        }
+        });
     </script>
 </body>
 </html>
