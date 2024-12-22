@@ -50,9 +50,9 @@
 
     <main>
         <div class="new-article">
-            <button type="button" id="new-article"><i class="fa-solid fa-plus fa-lg"></i></button>
+            <button type="button" id="new-article"><i class="new-article fa-solid fa-plus fa-lg"></i></button>
         </div>
-
+        
         <dialog id="page-dialog">
             <form>
                 <div class="writing-modal-container">
@@ -134,6 +134,8 @@
         const $articleSection = document.getElementById("article-section");
 
         $newArticleButton.onclick = () => {
+            document.getElementById("input-title").value = "";
+            document.getElementById("input-content").value = "";
             $modal.showModal();
         };
 
@@ -172,13 +174,24 @@
 
                 $inputTitle.value = "";
                 $inputContent.value = "";
+
                 $modal.close();
             }
         });
 
         $articleSection.addEventListener("click", (e) => {
-            if (e.target.closest('.edit')) {
-                $modal.showModal();
+            if (!e.target.classList.contains("new-article")) {
+                const $article = e.target.closest("article");
+
+                if ($article) {
+                    const $title = $article.querySelector(".article-title h4").innerText;
+                    const $content = $article.querySelector(".article-content p").innerText;
+
+                    document.getElementById("input-title").value = $title;
+                    document.getElementById("input-content").value = $content;
+
+                    $modal.showModal();
+                }
             }
         });
     </script>
