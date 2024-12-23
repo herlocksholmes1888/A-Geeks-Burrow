@@ -122,7 +122,7 @@
             HOW TO MAKE A SIMPLE CRUD:
                 1. Add a simple edit modal. You may change it in the future for the prototype's writing page ✅
                 2. DOM Manipulation in order to add the input to the page in order ✅
-                3. DOM Manipulation in order to remove the input 
+                3. DOM Manipulation in order to remove the input ✅
                 4. DOM Manipulation in order to edit the input
 
             Afterwards, you learn how to make it so that every change to the web document gets sent to a MongoDB database
@@ -133,7 +133,11 @@
         const $newArticleButton = document.getElementById("new-article");
         const $articleSection = document.getElementById("article-section");
 
+        let isEditing;
+
         $newArticleButton.onclick = () => {
+            isEditing = false;
+
             document.getElementById("input-title").value = "";
             document.getElementById("input-content").value = "";
             $modal.showModal();
@@ -170,9 +174,9 @@
                     </article>
                 `;
 
-                // TODO: Add logic that verifies if the user is editing an article and
-                // if yes, change the article instead of adding a new one
-                $articleSection.insertAdjacentHTML("afterbegin", newArticle);
+                if (!isEditing) {
+                    $articleSection.insertAdjacentHTML("afterbegin", newArticle);
+                }
 
                 $inputTitle.value = "";
                 $inputContent.value = "";
@@ -183,6 +187,8 @@
 
         $articleSection.addEventListener("click", (e) => {
             if (!e.target.classList.contains("new-article")) {
+                isEditing = true;
+
                 const $article = e.target.closest("article");
 
                 if ($article) {
