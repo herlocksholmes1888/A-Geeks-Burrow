@@ -123,7 +123,7 @@
                 1. Add a simple edit modal. You may change it in the future for the prototype's writing page ✅
                 2. DOM Manipulation in order to add the input to the page in order ✅
                 3. DOM Manipulation in order to remove the input ✅
-                4. DOM Manipulation in order to edit the input
+                4. DOM Manipulation in order to edit the input ✅
 
             Afterwards, you learn how to make it so that every change to the web document gets sent to a MongoDB database
         */
@@ -176,6 +176,9 @@
 
                 if (!isEditing) {
                     $articleSection.insertAdjacentHTML("afterbegin", newArticle);
+                } else {
+                    const $article = document.querySelector("article");
+                    $article.innerHTML = newArticle;
                 }
 
                 $inputTitle.value = "";
