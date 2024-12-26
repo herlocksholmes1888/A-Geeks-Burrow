@@ -70,32 +70,9 @@
         </dialog>
 
         <div id="article-section">
-            <article>
-                <div class="article-title"><h4>Article Title</h4></div>
-                <div class="article-content"><p>Lorem ipsum odor amet, consectetuer adipiscing elit. Duis aenean sollicitudin vel proin eget auctor commodo. Inceptos interdum egestas hac amet cubilia felis praesent. Euismod dui habitasse habitasse cubilia fringilla venenatis. Suscipit morbi vestibulum pellentesque dis vestibulum pulvinar cubilia. Ultrices lobortis euismod inceptos maecenas volutpat torquent enim magna...</p></div>
-                <div class="buttons">
-                    <button type="button" class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
-                    <button type="button" class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
-                </div>
-            </article>
-
-            <article>
-                <div class="article-title"><h4>Article Title</h4></div>
-                <div class="article-content"><p>Lorem ipsum odor amet, consectetuer adipiscing elit. Duis aenean sollicitudin vel proin eget auctor commodo. Inceptos interdum egestas hac amet cubilia felis praesent. Euismod dui habitasse habitasse cubilia fringilla venenatis. Suscipit morbi vestibulum pellentesque dis vestibulum pulvinar cubilia. Ultrices lobortis euismod inceptos maecenas volutpat torquent enim magna...</p></div>
-                <div class="buttons">
-                    <button type="button" class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
-                    <button type="button" class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
-                </div>
-            </article>
-
-            <article>
-                <div class="article-title"><h4>Article Title</h4></div>
-                <div class="article-content"><p>Lorem ipsum odor amet, consectetuer adipiscing elit. Duis aenean sollicitudin vel proin eget auctor commodo. Inceptos interdum egestas hac amet cubilia felis praesent. Euismod dui habitasse habitasse cubilia fringilla venenatis. Suscipit morbi vestibulum pellentesque dis vestibulum pulvinar cubilia. Ultrices lobortis euismod inceptos maecenas volutpat torquent enim magna...</p></div>
-                <div class="buttons">
-                    <button type="button" class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
-                    <button type="button" class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
-                </div>
-            </article>
+            <span>
+                <h4>We currently have no articles. Consider writing a new one! ✍🏽</h4>
+            </span>
 
             <div class="options">
                 <button type="button" id="previous">Previous</button>
@@ -125,6 +102,15 @@
         const $articleSection = document.getElementById("article-section");
 
         let isEditing;
+
+        document.addEventListener("change", (e) => {
+            const $existingArticles = document.querySelectorAll("article");
+            const $span = document.querySelector("span");
+            
+            if ($existingArticles.length >= 0) {
+                $span.classList.add("hide-span");
+            }
+        });
 
         $newArticleButton.onclick = () => {
             isEditing = false;

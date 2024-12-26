@@ -24,7 +24,7 @@
  
 #header-title {
     margin-left: 1rem;
-    font-family: "Cherish", cursive;
+    font-family: "Cherish", "cursive";
     font-weight: 700;
     font-style: normal;
     font-size: 35pt;
@@ -103,6 +103,19 @@
 main {
     margin: 28px;
     font-family: "Arial", "sans-serif";
+}
+
+span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Arial", "sans-serif";
+    font-size: 16pt;
+    margin: 8em;
+}
+
+.hide-span {
+    visibility: hidden;
 }
 
 .new-article {
