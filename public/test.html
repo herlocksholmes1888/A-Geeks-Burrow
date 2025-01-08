@@ -100,16 +100,26 @@
 
         const $newArticleButton = document.getElementById("new-article");
         const $articleSection = document.getElementById("article-section");
+        const $warningMessage = $articleSection.querySelector("span");  
 
+        let existingArticles = 0;
         let isEditing;
 
-        document.addEventListener("change", (e) => {
-            const $existingArticles = document.querySelectorAll("article");
-            const $span = document.querySelector("span");
-            
-            if ($existingArticles.length >= 0) {
-                $span.classList.add("hide-span");
+        // The number of existing articles must be checked multiple times
+        // throughout the program. Therefore, you need a function
+        function updateWarningMessage() {
+            const $span = $articleSection.querySelector("span");
+            if (existingArticles > 0) {
+                $span.classList.add("hide-span");  
+            } else {
+                $span.classList.remove("hide-span");  
             }
+        }
+
+        // Runs updateWarningMessage each time the page
+        // detects a change in the document
+        document.addEventListener("change", (e) => {
+            updateWarningMessage();  
         });
 
         $newArticleButton.onclick = () => {
@@ -130,7 +140,7 @@
                 e.clientY > dialogDimensions.bottom
             ) {
                 $modal.close();
-            }
+            }   
         });
 
         $form.addEventListener("submit", function newArticleController(e) {
@@ -152,6 +162,7 @@
                 `;
 
                 if (!isEditing) {
+                    existingArticles = existingArticles + 1;
                     $articleSection.insertAdjacentHTML("afterbegin", newArticle);
                 } else {
                     const $article = document.querySelector("article");
@@ -162,6 +173,7 @@
                 $inputContent.value = "";
 
                 $modal.close();
+                updateWarningMessage();  
             }
         });
 
@@ -186,9 +198,14 @@
                 const $article = e.target.closest("article");
                 $article.remove();
 
+                existingArticles = existingArticles - 1;
+
                 $modal.close();
+                updateWarningMessage();  
             }
         });
+
+        updateWarningMessage();
     </script>
 </body>
 </html>
