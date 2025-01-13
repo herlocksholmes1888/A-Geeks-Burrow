@@ -11,6 +11,8 @@ If so, welcome to **A Geek's Burrow**, a place where I lose track of my mind as 
 
 [Here's the prototype I made on Figma!](https://www.figma.com/design/9JL3E20K2HAychTQUmxYea/A-Geek's-Burrow?node-id=0-1&node-type=canvas&t=CaF7cN6n1p4gTLb3-0). For those who have been here since the beginning, [here's the original design](https://www.figma.com/design/Xppsg76PikexYXjKSAtsQN/Geek's-Burrow?node-id=1-2&node-type=canvas&t=EST6BTrFXrmmE53q-0). Talk about a glow up!
 
+If you want to see how the Frontend is looking thus far, [check it out on this Pages website](https://herlocksholmes1888.github.io/A-Geeks-Burrow-FRONTEND/)!
+
 ## 💾 Let's get technical
 Here's the technologies that make **A Geek's Burrow** run:
 
