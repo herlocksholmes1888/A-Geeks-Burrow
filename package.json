@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/herlocksholmes1888/A-Geeks-Burrow#readme",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "mongoose": "^8.9.5"
