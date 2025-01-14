@@ -11,6 +11,9 @@ const port = 3000;
     // View Engine
         app.set("view engine", "ejs");
         app.set("views", path.join(__dirname, "views"));
+    // DB
+        const connectDB = require("./server/config/db");
+        connectDB();
     // Static Files
         app.use(express.static("public"));
 
