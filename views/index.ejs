@@ -49,6 +49,17 @@
                 <h4>We currently have no articles. Consider writing a new one! ✍🏽</h4>
             </span>
 
+            <% data.forEach(post => { %>
+                <article>
+                    <div class="article-title"><h4><%= post.title %></h4></div>
+                    <div class="article-content"><p><%= post.content %></p></div>
+                    <div class="buttons">
+                        <button type="button" class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
+                        <button type="button" class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
+                    </div>
+                </article>
+            <% }) %>
+
             <div class="options">
                 <button type="button" id="previous">Previous</button>
                 <button type="button" id="next">Next</button>
@@ -73,6 +84,7 @@
     // throughout the program. Therefore, you need a function
     function updateWarningMessage() {
         const $span = $articleSection.querySelector("span");
+
         if (existingArticles > 0) {
             $span.classList.add("hide-span");  
         } else {
