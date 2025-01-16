@@ -114,10 +114,6 @@ span {
     margin: 8em;
 }
 
-.hide-span {
-    visibility: hidden;
-}
-
 .new-article {
     display: flex;
     justify-content: right;
@@ -150,7 +146,7 @@ button:hover {
     cursor: pointer;
 }
 
-.options {
+#options {
     display: flex;
     justify-content: center;
     gap: 100px;
