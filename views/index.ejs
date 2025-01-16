@@ -84,8 +84,9 @@
     // throughout the program. Therefore, you need a function
     function updateWarningMessage() {
         const $span = $articleSection.querySelector("span");
+        const dataFromDatabase = <%- JSON.stringify(data) %>;
 
-        if (existingArticles > 0) {
+        if (existingArticles > 0 || dataFromDatabase.length > 0) {
             $span.classList.add("hide-span");  
         } else {
             $span.classList.remove("hide-span");  
@@ -134,8 +135,7 @@
                         <button type="button" class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
                         <button type="button" class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
                     </div>
-                </article>
-            `;
+                </article>`;
 
             if (!isEditing) {
                 existingArticles = existingArticles + 1;
