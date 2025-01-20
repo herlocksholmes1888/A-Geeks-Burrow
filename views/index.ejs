@@ -77,7 +77,6 @@
     const $optionsSection = document.getElementById("options");
     const $warningMessage = $articleSection.querySelector("span");  
 
-    let existingArticles = 0;
     let isEditing;
 
     // The number of existing articles must be checked multiple times
@@ -86,7 +85,7 @@
         const $span = $articleSection.querySelector("span");
         const dataFromDatabase = <%- JSON.stringify(data) %>;
 
-        if (existingArticles > 0 || dataFromDatabase.length > 0) {
+        if (dataFromDatabase.length > 0) {
             $span.remove();  
         } else {
             const $newSpan = document.createElement("span"); 
@@ -140,7 +139,6 @@
                 </article>`;
 
             if (!isEditing) {
-                existingArticles = existingArticles + 1;
                 $articleSection.insertAdjacentHTML("afterbegin", newArticle);
             } else {
                 const $article = document.querySelector("article");
@@ -175,8 +173,6 @@
         if (e.target.closest('.delete')) {
             const $article = e.target.closest("article");
             $article.remove();
-
-            existingArticles = existingArticles - 1;
 
             $modal.close();
             updateWarningMessage();  
