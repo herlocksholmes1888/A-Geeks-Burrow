@@ -57,10 +57,12 @@
                 </article>
             <% }) %>
 
-            <div id="options">
-                <button type="button" id="previous">Previous</button>
-                <button type="button" id="next">Next</button>
-            </div>
+            <% if (nextPage !== null) { %>  
+                <div id="options">
+                    <button type="button" id="previous">Previous</button>
+                    <button type="button" id="next">Next</button>
+                </div>
+            <% } %>
         </div>
     </main>
 

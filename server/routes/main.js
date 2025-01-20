@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Post = require('../model/post');
 
+/*
 function insertPostData() {
     Post.insertMany([
         {
@@ -28,11 +29,26 @@ function insertPostData() {
     ])
 }
 insertPostData();
+*/
 
 router.get("/", async (req, res) => {
     try {
-        const data = await Post.find();
-        res.render("index", { title: "Home", data });
+        let perPage = 4;
+        let page = req.query.page || 1;
+
+        const data = await Post.find().skip((perPage * page) - perPage).limit(perPage);
+
+        const count = await Post.countDocuments();
+        const nextPage = parseInt(page) + 1;
+        const hasNextPage = nextPage <= Math.ceil(count / perPage);
+
+        res.render("index", 
+            {
+                title: "Home",
+                data,
+                nextPage: hasNextPage ? nextPage : null 
+            }
+        );
     } catch (error) {
         console.log(error);
     }
