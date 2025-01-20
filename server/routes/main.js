@@ -36,17 +36,29 @@ router.get("/", async (req, res) => {
         let perPage = 4;
         let page = req.query.page || 1;
 
-        const data = await Post.find().skip((perPage * page) - perPage).limit(perPage);
+        const data = await Post.find()
+        // This makes it so that, if the page is 1, it will skip
+        // 0 documents. If it is 2, it will skip 4 documents,
+        // and so on
+        .skip((perPage * page) - perPage)
+        .limit(perPage);
 
         const count = await Post.countDocuments();
         const nextPage = parseInt(page) + 1;
+        const previousPage = parseInt(page) - 1;
+
+        // <= means less than or equal to, just like in an if statement
+        // Here, it is used in the declaration of a variable
         const hasNextPage = nextPage <= Math.ceil(count / perPage);
+        const hasPreviousPage = previousPage >= 1;
 
         res.render("index", 
             {
                 title: "Home",
                 data,
-                nextPage: hasNextPage ? nextPage : null 
+                current: page,
+                nextPage: hasNextPage ? nextPage : null,
+                previousPage: hasPreviousPage ? previousPage : null
             }
         );
     } catch (error) {

@@ -56,13 +56,11 @@
                     </div>
                 </article>
             <% }) %>
-
-            <% if (nextPage !== null) { %>  
-                <div id="options">
-                    <button type="button" id="previous">Previous</button>
-                    <button type="button" id="next">Next</button>
-                </div>
-            <% } %>
+  
+            <div id="options">
+                <a href="/?page=<% previousPage %>" class="pagination"><button type="button" id="previous">Previous</button></a>
+                <a href="/?page=<%= nextPage %>" class="pagination"><button type="button" id="next">Next</button></a>
+            </div>
         </div>
     </main>
 
