@@ -29,15 +29,15 @@
         </div>
 
         <dialog id="page-dialog">
-            <form>
+            <form method="POST" action="/new">
                 <div class="writing-modal-container">
                     <div class="writing-modal-content">
-                        <div class="modal-article-title"><input type="text" id="input-title" placeholder="Title"></input></div>
-                        <div class="modal-article-content"><textarea id="input-content" placeholder="Content"></textarea></div>
+                        <div class="modal-article-title"><input type="text" id="input-title" name="title" placeholder="Title" /></div>
+                        <div class="modal-article-content"><textarea id="input-content" name="content" placeholder="Content"></textarea></div>
                         <div class="modal-buttons">
                             <button type="submit" class="publish"><i class="fa-solid fa-upload fa-lg fa-fw"></i></button>
-                            <button type="submit" class="save"><i class="fa-solid fa-floppy-disk fa-lg fa-fw"></i></button>
-                            <button type="submit" class="delete"><i class="fa-solid fa-trash fa-lg fa-fw"></i></button>
+                            <button type="button" class="save"><i class="fa-solid fa-floppy-disk fa-lg fa-fw"></i></button>
+                            <button type="button" class="delete"><i class="fa-solid fa-trash fa-lg fa-fw"></i></button>
                         </div>
                     </div>
                 </div>
@@ -127,34 +127,45 @@
     $form.addEventListener("submit", function newArticleController(e) {
         e.preventDefault();
 
-        const $inputTitle = document.getElementById("input-title");
-        const $inputContent = document.getElementById("input-content");
-
         if ($inputTitle.value && $inputContent.value) {
-            const newArticle = `
-                <article>
-                    <div class="article-title"><h4>${$inputTitle.value}</h4></div>
-                    <div class="article-content"><p>${$inputContent.value}</p></div>
-                    <div class="buttons">
-                        <button type="button" class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
-                        <button type="button" class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
-                    </div>
-                </article>`;
+            const articleData = {
+                title: $inputTitle.value,
+                content: $inputContent.value,
+            };
 
-            if (!isEditing) {
-                $articleSection.insertAdjacentHTML("afterbegin", newArticle);
-            } else {
-                const $article = document.querySelector("article");
-                $article.innerHTML = newArticle;
-            }
+            fetch("/new", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(articleData)
+            })
+            .then(data => {
+                if (data.success) {
+                    const newArticle = `
+                        <article>
+                            <div class="article-title"><h4>${$inputTitle.value}</h4></div>
+                            <div class="article-content"><p>${$inputContent.value}</p></div>
+                            <div class="buttons">
+                                <button type="button" class="delete"><i class="fa-solid fa-delete-left fa-lg fa-fw"></i></button>
+                                <button type="button" class="edit"><i class="fa-solid fa-pen-to-square fa-lg fa-fw"></i></button>
+                            </div>
+                        </article>`;
+                    $articleSection.insertAdjacentHTML("afterbegin", newArticle);
+                }
 
-            $inputTitle.value = "";
-            $inputContent.value = "";
+                $inputTitle.value = "";
+                $inputContent.value = "";
 
-            $modal.close();
-            updateWarningMessage();  
+                $modal.close();  
+                updateWarningMessage();  
+            })
+            .catch(error => {
+                console.log(error);
+            });
         }
     });
+
 
     $articleSection.addEventListener("click", (e) => {
         if (!e.target.classList.contains("new-article")) {

@@ -1,6 +1,8 @@
 <div align="center">
- <h1>A Geek's Burrow</h1>
+ <h1>A Geek's Burrow [DISCONTINUED]</h1>
 </div>
+
+:warning: Due to regular delays and the piling up of university/work related responsibilites, this project has unfortunately been discontinued! It started off as a way to learn the ins and outs of backend and, now that I am a Python Backend Intern, I see no reason to continue with this project. It has helped me through a dark spot in my life, and I am forever thankful for the distraction it provided. Perhaps, I'll revive it one day - but I'm not hopeful that that will be the case. :warning:
 
 Are you a life-long learner? Are you haunted by multiple interests? Above all else, do you think that the opinion of a jack-of-all-trades, master of none, matter at all?
 

@@ -31,6 +31,7 @@ function insertPostData() {
 insertPostData();
 */
 
+// Pagination
 router.get("/", async (req, res) => {
     try {
         let perPage = 4;
@@ -64,6 +65,21 @@ router.get("/", async (req, res) => {
     } catch (error) {
         console.log(error);
     }
+});
+
+router.post("/new", async (req, res) => {
+    const newPost = new Post({
+        title: req.body.title,
+        content: req.body.content
+    });
+
+    newPost.save((err) => {
+        if (err) {
+            console.error(err);
+        }
+        
+        console.log("Post saved successfully!");
+    });
 });
 
 module.exports = router;

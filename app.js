@@ -18,3 +18,20 @@ const port = 3000;
         app.use(express.static("public"));
 
 app.use("/", require('./server/routes/main'));
+app.use(express.json());
+
+// Route to handle creating a new post
+app.post('/new', async (req, res) => {
+    const { title, content } = req.body;
+    const newPost = new Post({
+        title,
+        content
+    });
+
+    try {
+        await newPost.save();
+        console.log("Post saved successfully!");
+    } catch (err) {
+        console.log(err);
+    }
+});
